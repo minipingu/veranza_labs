@@ -17,15 +17,7 @@ class _AnotherLoginState extends State<AnotherLogin> {
       decoration: BoxDecoration(
         image: DecorationImage(image: AssetImage(widget.path)),
       ),
-      child: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.transparent,
-          shadowColor: Colors.transparent,
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
-        ),
-        child: Container(),
-      ),
+      child: InkWell(onTap: () {}, child: Container()),
     );
   }
 }
