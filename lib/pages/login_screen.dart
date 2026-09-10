@@ -60,7 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             'Enter your email and password to log in',
                             style: GoogleFonts.inter(
                               fontSize: 12,
-                              color: Color(0xFFEDF1F3),
+                              color: Color(0xFF6C7278),
                             ),
                           ),
                         ],
@@ -92,7 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               TextFormField(
                                 decoration: InputDecoration(
-                                  hintText: 'Loisbecket@gmail.com',
+                                  hintText: 'Input your password',
                                   filled: true,
                                   fillColor: Color.fromARGB(255, 255, 255, 255),
                                   enabledBorder: OutlineInputBorder(
