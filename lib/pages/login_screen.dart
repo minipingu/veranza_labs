@@ -104,6 +104,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                 TextFormField(
                                   obscureText: true,
                                   decoration: InputDecoration(
+                                    suffixIcon: Icon(
+                                      Icons.visibility_off,
+                                      size: 16,
+                                    ),
+                                    suffixIconColor: Color(0xFFACB5BB),
                                     hintText: 'Input your password',
                                     filled: true,
                                     fillColor: Color.fromARGB(
@@ -164,10 +169,17 @@ class _LoginScreenState extends State<LoginScreen> {
                           ],
                         ),
                         ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Color(0xFF1D61E7),
+                          ),
                           onPressed: () {},
-                          child: Text(
-                            'Log In',
-                            style: GoogleFonts.inter(color: Color(0xFFFFFFFF)),
+                          child: Expanded(
+                            child: Text(
+                              'Log In',
+                              style: GoogleFonts.inter(
+                                color: Color(0xFFFFFFFF),
+                              ),
+                            ),
                           ),
                         ),
                       ],
