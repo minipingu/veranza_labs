@@ -168,12 +168,17 @@ class _LoginScreenState extends State<LoginScreen> {
                             ),
                           ],
                         ),
-                        ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color(0xFF1D61E7),
-                          ),
-                          onPressed: () {},
-                          child: Expanded(
+                        SizedBox(
+                          width: double.infinity,
+                          height: 48,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Color(0xFF1D61E7),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadiusGeometry.circular(10),
+                              ),
+                            ),
+                            onPressed: () {},
                             child: Text(
                               'Log In',
                               style: GoogleFonts.inter(
