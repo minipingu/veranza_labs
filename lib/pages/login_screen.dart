@@ -28,7 +28,17 @@ class _LoginScreenState extends State<LoginScreen> {
                   color: Color(0xFFFFFFFF).withValues(alpha: 0.6),
                   borderRadius: BorderRadius.circular(12),
                 ),
-                child: Column(children: []),
+                child: Expanded(
+                  child: Column(
+                    children: [
+                      Image.asset(
+                        'assets/icons/logo.png',
+                        width: 34,
+                        height: 34,
+                      ),
+                    ],
+                  ),
+                ),
               ),
             ),
           ),
