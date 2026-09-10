@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class LoginScreen extends StatefulWidget {
   const new({super.key});
@@ -33,6 +34,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Padding(
                   padding: const EdgeInsets.all(24),
                   child: Column(
+                    spacing: 24,
                     children: [
                       Image.asset(
                         'assets/icons/logo.png',
@@ -41,7 +43,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                       Text(
                         'Login',
-                        style: TextStyle(fontSize: 34, fontWeight: .w700),
+                        style: GoogleFonts.inter(
+                          fontWeight: .w700,
+                          fontSize: 34,
+                        ),
                       ),
                     ],
                   ),
