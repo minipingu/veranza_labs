@@ -121,7 +121,12 @@ class _LoginScreenState extends State<LoginScreen> {
                                       focusedBorder: OutlineInputBorder(
                                         borderRadius: BorderRadius.circular(10),
                                         borderSide: BorderSide(
-                                          color: Color(0xFFEDF1F3),
+                                          color: Color.fromARGB(
+                                            255,
+                                            205,
+                                            238,
+                                            255,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -274,29 +279,50 @@ class _LoginScreenState extends State<LoginScreen> {
                         Row(
                           mainAxisAlignment: .spaceBetween,
                           children: [
+                            ElevatedButton(
+                              onPressed: () {},
+                              child: Image.asset(
+                                'assets/icons/login_facebook.png',
+                                width: 62.5,
+                                height: 48,
+                              ),
+                            ),
                             Image.asset(
                               'assets/icons/login_google.png',
                               width: 62.5,
                               height: 48,
                             ),
-                            Image.asset('assets/icons/login_facebook.png'),
-                            Image.asset('assets/icons/login_google.png'),
-                            Image.asset('assets/icons/login_google.png'),
+                            Image.asset(
+                              'assets/icons/login_google.png',
+                              width: 62.5,
+                              height: 48,
+                            ),
                           ],
                         ),
                         Center(
                           child: Row(
                             children: [
+                              Expanded(child: Container()),
                               Text(
                                 'Don’t have an account?',
                                 style: GoogleFonts.inter(
                                   color: Color(0xFF6C7278),
+                                  fontWeight: semiBold,
+                                  fontSize: 12,
                                 ),
                               ),
                               TextButton(
                                 onPressed: () {},
-                                child: Text('Sign Up'),
+                                child: Text(
+                                  'Sign Up',
+                                  style: GoogleFonts.inter(
+                                    color: Color(0xFF4D81E7),
+                                    fontWeight: semiBold,
+                                    fontSize: 12,
+                                  ),
+                                ),
                               ),
+                              Expanded(child: Container()),
                             ],
                           ),
                         ),
