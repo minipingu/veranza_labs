@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:veranza_labs/pages/components/another_login.dart';
 
 class LoginScreen extends StatefulWidget {
   const new({super.key});
@@ -279,24 +280,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         Row(
                           mainAxisAlignment: .spaceBetween,
                           children: [
-                            ElevatedButton(
-                              onPressed: () {},
-                              child: Image.asset(
-                                'assets/icons/login_facebook.png',
-                                width: 62.5,
-                                height: 48,
-                              ),
+                            AnotherLogin(path: 'assets/icons/login_google.png'),
+                            AnotherLogin(
+                              path: 'assets/icons/login_facebook.png',
                             ),
-                            Image.asset(
-                              'assets/icons/login_google.png',
-                              width: 62.5,
-                              height: 48,
-                            ),
-                            Image.asset(
-                              'assets/icons/login_google.png',
-                              width: 62.5,
-                              height: 48,
-                            ),
+                            AnotherLogin(path: 'assets/icons/login_apple.png'),
+                            AnotherLogin(path: 'assets/icons/login_phone.png'),
+                            //facebook
                           ],
                         ),
                         Center(
