@@ -152,7 +152,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     ),
                                     obscureText: !wantToSeePassword,
                                     decoration: InputDecoration(
-                                      suffixIcon: GestureDetector(
+                                      suffixIcon: InkWell(
                                         onTap: () => setState(
                                           () => wantToSeePassword =
                                               !wantToSeePassword,
@@ -197,7 +197,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             Row(
                               spacing: 5,
                               children: [
-                                GestureDetector(
+                                InkWell(
                                   onTap: () =>
                                       setState(() => rememberMe = !rememberMe),
                                   child: Icon(
@@ -215,12 +215,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                   ),
                                 ),
                                 Expanded(child: Container()),
-                                Text(
-                                  'Forgot Password ?',
-                                  style: GoogleFonts.inter(
-                                    color: Color(0xFF4D81E7),
-                                    fontWeight: .w600,
-                                    fontSize: 12,
+                                InkWell(
+                                  onTap: () {},
+                                  child: Text(
+                                    'Forgot Password ?',
+                                    style: GoogleFonts.inter(
+                                      color: Color(0xFF4D81E7),
+                                      fontWeight: .w600,
+                                      fontSize: 12,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -291,6 +294,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         ),
                         Center(
                           child: Row(
+                            spacing: 6,
                             children: [
                               Expanded(child: Container()),
                               Text(
@@ -301,8 +305,8 @@ class _LoginScreenState extends State<LoginScreen> {
                                   fontSize: 12,
                                 ),
                               ),
-                              TextButton(
-                                onPressed: () {},
+                              InkWell(
+                                onTap: () {},
                                 child: Text(
                                   'Sign Up',
                                   style: GoogleFonts.inter(
