@@ -14,14 +14,21 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Stack(
         children: [
           Image.asset('assets/images/background_login_gradient.png'),
-          Center(
-            child: Container(
-              width: 343,
-              height: 561,
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.white),
-                color: Colors.white.withValues(alpha: 0.6),
-                borderRadius: BorderRadius.circular(12),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 120,
+              bottom: 120,
+              left: 20,
+              right: 20,
+            ),
+            child: Center(
+              child: Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Color(0xFFFFFFFF), width: 1),
+                  color: Color(0xFFFFFFFF).withValues(alpha: 0.6),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Column(children: []),
               ),
             ),
           ),
