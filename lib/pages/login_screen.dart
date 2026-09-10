@@ -9,6 +9,16 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
+  //state
+  bool wantToSeePassword = false;
+  bool rememberMe = false;
+
+  //fontweight
+  FontWeight medium = .w500;
+  FontWeight regular = .w400;
+  FontWeight semiBold = .w600;
+  FontWeight bold = .w700;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -72,65 +82,105 @@ class _LoginScreenState extends State<LoginScreen> {
                             Column(
                               spacing: 6,
                               children: [
-                                TextFormField(
-                                  decoration: InputDecoration(
-                                    hintText: 'Input your username',
-                                    filled: true,
-                                    fillColor: Color.fromARGB(
-                                      255,
-                                      255,
-                                      255,
-                                      255,
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFEDF1F3),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color(0xFFE4E5E7)
+                                            .withValues(alpha: 0.24),
+                                        blurRadius: 2,
+                                        offset: Offset(0, 1),
                                       ),
+                                    ],
+                                  ),
+                                  child: TextFormField(
+                                    style: GoogleFonts.inter(
+                                      color: Color(0xFF1A1C1E),
+                                      fontSize: 14,
+                                      fontWeight: medium,
                                     ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide(
-                                        color: Color.fromARGB(
-                                          255,
-                                          205,
-                                          238,
-                                          255,
+                                    decoration: InputDecoration(
+                                      hintText: 'Username',
+                                      hintStyle: GoogleFonts.inter(
+                                        color: Color(0xFF000000)
+                                            .withValues(alpha: 0.4),
+                                      ),
+                                      filled: true,
+                                      fillColor: Color.fromARGB(
+                                        255,
+                                        255,
+                                        255,
+                                        255,
+                                      ),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFEDF1F3),
+                                        ),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFEDF1F3),
                                         ),
                                       ),
                                     ),
                                   ),
                                 ),
-                                TextFormField(
-                                  obscureText: true,
-                                  decoration: InputDecoration(
-                                    suffixIcon: Icon(
-                                      Icons.visibility_off,
-                                      size: 16,
-                                    ),
-                                    suffixIconColor: Color(0xFFACB5BB),
-                                    hintText: 'Input your password',
-                                    filled: true,
-                                    fillColor: Color.fromARGB(
-                                      255,
-                                      255,
-                                      255,
-                                      255,
-                                    ),
-                                    enabledBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide(
-                                        color: Color(0xFFEDF1F3),
+                                Container(
+                                  decoration: BoxDecoration(
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color(0xFFE4E5E7)
+                                            .withValues(alpha: 0.24),
+                                        blurRadius: 2,
+                                        offset: Offset(0, 1),
                                       ),
+                                    ],
+                                  ),
+                                  child: TextFormField(
+                                    style: GoogleFonts.inter(
+                                      color: Color(0xFF1A1C1E),
+                                      fontSize: 14,
+                                      fontWeight: medium,
                                     ),
-                                    focusedBorder: OutlineInputBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      borderSide: BorderSide(
-                                        color: Color.fromARGB(
-                                          255,
-                                          205,
-                                          238,
-                                          255,
+                                    obscureText: !wantToSeePassword,
+                                    decoration: InputDecoration(
+                                      suffixIcon: GestureDetector(
+                                        onTap: () => setState(
+                                          () => wantToSeePassword =
+                                              !wantToSeePassword,
+                                        ),
+                                        child: Icon(
+                                          wantToSeePassword
+                                              ? Icons.visibility
+                                              : Icons.visibility_off,
+                                          size: 16,
+                                        ),
+                                      ),
+                                      suffixIconColor: Color(0xFFACB5BB),
+                                      hintText: 'Input your password',
+                                      hintStyle: GoogleFonts.inter(
+                                        color: Color(0xFF000000)
+                                            .withValues(alpha: 0.4),
+                                      ),
+                                      filled: true,
+                                      fillColor: Color(0xFFFFFFFF),
+                                      enabledBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide(
+                                          color: Color(0xFFEDF1F3),
+                                        ),
+                                      ),
+                                      focusedBorder: OutlineInputBorder(
+                                        borderRadius: BorderRadius.circular(10),
+                                        borderSide: BorderSide(
+                                          color: Color.fromARGB(
+                                            255,
+                                            205,
+                                            238,
+                                            255,
+                                          ),
                                         ),
                                       ),
                                     ),
@@ -141,13 +191,16 @@ class _LoginScreenState extends State<LoginScreen> {
                             Row(
                               spacing: 5,
                               children: [
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(
-                                    Icons.check_box_outline_blank,
-                                    size: 14,
+                                GestureDetector(
+                                  onTap: () =>
+                                      setState(() => rememberMe = !rememberMe),
+                                  child: Icon(
+                                    rememberMe
+                                        ? Icons.check_box_outline_blank
+                                        : Icons.check_box_outlined,
+                                    size: 19,
+                                    color: Color(0xFF6C7278),
                                   ),
-                                  color: Color(0xFF6C7278),
                                 ),
                                 Text(
                                   'Remember me',
@@ -169,22 +222,82 @@ class _LoginScreenState extends State<LoginScreen> {
                           ],
                         ),
                         SizedBox(
-                          width: double.infinity,
+                          width: .infinity,
                           height: 48,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              backgroundColor: Color(0xFF1D61E7),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadiusGeometry.circular(10),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10),
+                              image: DecorationImage(
+                                image: AssetImage(
+                                  'assets/images/login_button_background.png',
+                                ),
+                                fit: BoxFit.cover,
                               ),
                             ),
-                            onPressed: () {},
-                            child: Text(
-                              'Log In',
+                            child: ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                backgroundColor: Colors.transparent,
+                                shadowColor: Colors.transparent,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadiusGeometry.circular(
+                                    10,
+                                  ),
+                                ),
+                              ),
+                              onPressed: () {},
+                              child: Text(
+                                'Log In',
+                                style: GoogleFonts.inter(
+                                  color: Color(0xFFFFFFFF),
+                                  fontSize: 14,
+                                  fontWeight: .w600,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Row(
+                          spacing: 16,
+                          children: [
+                            Expanded(child: Divider(color: Color(0xFFFFFFFF))),
+                            Text(
+                              'Or login with',
                               style: GoogleFonts.inter(
-                                color: Color(0xFFFFFFFF),
+                                color: Color(0xFF6C7278),
+                                fontSize: 12,
+                                fontWeight: regular,
                               ),
                             ),
+                            Expanded(child: Divider(color: Color(0xFFFFFFFF))),
+                          ],
+                        ),
+                        Row(
+                          mainAxisAlignment: .spaceBetween,
+                          children: [
+                            Image.asset(
+                              'assets/icons/login_google.png',
+                              width: 62.5,
+                              height: 48,
+                            ),
+                            Image.asset('assets/icons/login_facebook.png'),
+                            Image.asset('assets/icons/login_google.png'),
+                            Image.asset('assets/icons/login_google.png'),
+                          ],
+                        ),
+                        Center(
+                          child: Row(
+                            children: [
+                              Text(
+                                'Don’t have an account?',
+                                style: GoogleFonts.inter(
+                                  color: Color(0xFF6C7278),
+                                ),
+                              ),
+                              TextButton(
+                                onPressed: () {},
+                                child: Text('Sign Up'),
+                              ),
+                            ],
                           ),
                         ),
                       ],
