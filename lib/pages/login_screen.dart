@@ -283,13 +283,13 @@ class _LoginScreenState extends State<LoginScreen> {
                         Row(
                           mainAxisAlignment: .spaceBetween,
                           children: [
+                            //reusable massss....
                             AnotherLogin(path: 'assets/icons/login_google.png'),
                             AnotherLogin(
                               path: 'assets/icons/login_facebook.png',
                             ),
                             AnotherLogin(path: 'assets/icons/login_apple.png'),
                             AnotherLogin(path: 'assets/icons/login_phone.png'),
-                            //facebook
                           ],
                         ),
                         Center(
