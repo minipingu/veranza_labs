@@ -1,5 +1,6 @@
 import 'package:flutter_native_splash/flutter_native_splash.dart';
-import 'package:veranza_labs/pages/login_screen.dart';
+import 'package:go_router/go_router.dart';
+import 'package:veranza_labs/router/app_router.dart';
 import 'package:material_ui/material_ui.dart';
 
 void main() {
@@ -13,10 +14,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Veranza Apps',
       theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: LoginScreen(),
+      routerConfig: GoRouter(routes: $appRoutes),
     );
   }
 }

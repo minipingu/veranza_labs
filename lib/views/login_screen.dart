@@ -1,10 +1,10 @@
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:veranza_labs/constants/font_weight.dart';
-import 'package:veranza_labs/pages/components/another_login.dart';
+import 'package:veranza_labs/views/components/another_login.dart';
 
 class LoginScreen extends StatefulWidget {
   const new({super.key});
@@ -14,32 +14,13 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  @override
-  void initState() {
-    super.initState();
-    initialization();
-  }
-
-  void initialization() async {
-    // This is where you can initialize the resources needed by your app while
-    // the splash screen is displayed.  Remove the following example because
-    // delaying the user experience is a bad design practice!
-    // ignore_for_file: avoid_print
-    print('ready in 3...');
-    await Future.delayed(const Duration(seconds: 1));
-    print('ready in 2...');
-    await Future.delayed(const Duration(seconds: 1));
-    print('ready in 1...');
-    await Future.delayed(const Duration(seconds: 1));
-    print('go!');
-    FlutterNativeSplash.remove();
-  }
-
   bool _isSignUp = false;
   bool wantToSeePassword = false;
   bool rememberMe = false;
 
   final _formKey = GlobalKey<FormBuilderState>();
+  String? _email;
+  String? _password;
 
   @override
   Widget build(BuildContext context) {
@@ -124,6 +105,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ],
                                     ),
                                     child: FormBuilderTextField(
+                                      onChanged: (val) => setState(() {
+                                        _email = val;
+                                      }),
                                       name: 'email',
                                       validator: FormBuilderValidators.compose([
                                         FormBuilderValidators.required(
@@ -182,6 +166,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                       ],
                                     ),
                                     child: FormBuilderTextField(
+                                      onChanged: (val) => setState(() {
+                                        _password = val;
+                                      }),
                                       name: 'password',
                                       validator: FormBuilderValidators.compose([
                                         FormBuilderValidators.required(
