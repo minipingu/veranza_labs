@@ -2,6 +2,7 @@ import 'package:material_ui/material_ui.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:veranza_labs/constants/font_weight.dart';
 import 'package:veranza_labs/pages/components/another_login.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -13,15 +14,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _isSignUp = false;
-  //state
   bool wantToSeePassword = false;
   bool rememberMe = false;
-
-  //fontweight
-  FontWeight medium = .w500;
-  FontWeight regular = .w400;
-  FontWeight semiBold = .w600;
-  FontWeight bold = .w700;
 
   final _formKey = GlobalKey<FormBuilderState>();
 
@@ -110,13 +104,17 @@ class _LoginScreenState extends State<LoginScreen> {
                                     child: FormBuilderTextField(
                                       name: 'email',
                                       validator: FormBuilderValidators.compose([
-                                        FormBuilderValidators.required(),
-                                        FormBuilderValidators.email(),
+                                        FormBuilderValidators.required(
+                                          errorText: "Isi donk emailnya 😡",
+                                        ),
+                                        FormBuilderValidators.email(
+                                          errorText: 'yang donk bener ngisi emailnya 😤🤬',
+                                        ),
                                       ]),
                                       style: GoogleFonts.inter(
                                         color: Color(0xFF1A1C1E),
                                         fontSize: 14,
-                                        fontWeight: medium,
+                                        fontWeight: FontCustom.medium,
                                       ),
                                       decoration: InputDecoration(
                                         hintText: 'Input your email',
@@ -165,18 +163,33 @@ class _LoginScreenState extends State<LoginScreen> {
                                       name: 'password',
                                       validator: FormBuilderValidators.compose([
                                         FormBuilderValidators.required(),
-                                        FormBuilderValidators.password(
-                                          minLength: 8,
-                                          minLowercaseCount: 1,
-                                          minNumberCount: 1,
-                                          minSpecialCharCount: 1,
-                                          minUppercaseCount: 1,
+                                        FormBuilderValidators.minLength(
+                                          8,
+                                          errorText: 'minimal 8 karakter 😤',
+                                        ),
+                                        FormBuilderValidators.hasLowercaseChars(
+                                          atLeast: 1,
+                                          errorText:
+                                              'minimal ada 1 huruf kecil 😤',
+                                        ),
+                                        FormBuilderValidators.hasNumericChars(
+                                          atLeast: 1,
+                                          errorText: 'minimal ada 1 angka 😤',
+                                        ),
+                                        FormBuilderValidators.hasSpecialChars(
+                                          atLeast: 1,
+                                          errorText: 'minimal ada 1 simbol 😤',
+                                        ),
+                                        FormBuilderValidators.hasUppercaseChars(
+                                          atLeast: 1,
+                                          errorText:
+                                              'minimal ada 1 huruf besar 😤',
                                         ),
                                       ]),
                                       style: GoogleFonts.inter(
                                         color: Color(0xFF1A1C1E),
                                         fontSize: 14,
-                                        fontWeight: medium,
+                                        fontWeight: FontCustom.medium,
                                       ),
                                       obscureText: !wantToSeePassword,
                                       decoration: InputDecoration(
@@ -328,7 +341,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     style: GoogleFonts.inter(
                                       color: Color(0xFF6C7278),
                                       fontSize: 12,
-                                      fontWeight: regular,
+                                      fontWeight: FontCustom.regular,
                                     ),
                                   ),
                                   Expanded(
@@ -367,7 +380,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       : 'Don’t have an account?',
                                   style: GoogleFonts.inter(
                                     color: Color(0xFF6C7278),
-                                    fontWeight: semiBold,
+                                    fontWeight: FontCustom.semiBold,
                                     fontSize: 12,
                                   ),
                                 ),
@@ -381,7 +394,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     _isSignUp ? 'Sign In' : 'Sign Up',
                                     style: GoogleFonts.inter(
                                       color: Color(0xFF4D81E7),
-                                      fontWeight: semiBold,
+                                      fontWeight: FontCustom.semiBold,
                                       fontSize: 12,
                                     ),
                                   ),
