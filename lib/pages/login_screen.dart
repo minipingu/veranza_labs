@@ -184,7 +184,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                     child: FormBuilderTextField(
                                       name: 'password',
                                       validator: FormBuilderValidators.compose([
-                                        FormBuilderValidators.required(),
+                                        FormBuilderValidators.required(
+                                          errorText: "Isi donk passwordnya 😡",
+                                        ),
                                         FormBuilderValidators.minLength(
                                           8,
                                           errorText: 'minimal 8 karakter 😤',
