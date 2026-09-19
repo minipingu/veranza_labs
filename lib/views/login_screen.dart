@@ -1,9 +1,10 @@
-import 'package:go_router/go_router.dart';
 import 'package:material_ui/material_ui.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:form_builder_validators/form_builder_validators.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:veranza_labs/constants/font_weight.dart';
+import 'package:veranza_labs/constants/font.dart';
+import 'package:veranza_labs/router/app_router.dart';
+import 'package:veranza_labs/services/preferences_handler.dart';
 import 'package:veranza_labs/views/components/another_login.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -303,18 +304,8 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                               child: ElevatedButton(
                                 onPressed: () {
-                                  // Validate and save the form values
-                                  _formKey.currentState?.saveAndValidate();
-                                  debugPrint(
-                                    _formKey.currentState?.value.toString(),
-                                  );
-
-                                  // On another side, can access all field values without saving form with instantValues
-                                  _formKey.currentState?.validate();
-                                  debugPrint(
-                                    _formKey.currentState?.instantValue
-                                        .toString(),
-                                  );
+                                  LoginStorage.setLogin(true);
+                                  HomeRoute().go(context);
                                 },
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.transparent,

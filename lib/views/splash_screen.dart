@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:veranza_labs/router/app_router.dart';
+import 'package:veranza_labs/services/preferences_handler.dart';
 
 class SplashScreen extends StatefulWidget {
   const new({super.key});
@@ -19,7 +20,9 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void login() async {
     await Future.delayed(const Duration(seconds: 2));
-    HomeRoute().go(context);
+    await LoginStorage.isLogin
+        ? HomeRoute().go(context)
+        : LoginRoute().go(context);
   }
 
   @override

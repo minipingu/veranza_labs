@@ -1,21 +1,19 @@
-// import 'package:shared_preferences/shared_preferences.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-// class PreferencesHandler {
-//   static late SharedPreferences _asyncPrefs;
+class LoginStorage {
+  static final SharedPreferencesAsync _asyncPref = SharedPreferencesAsync();
 
-//   static Future<void> init() async {
-//     _asyncPrefs = await SharedPreferences.getInstance();
-//   }
+  static const String _loginKey = 'isLogin';
 
-// await asyncPrefs.setBool('repeat', true);
-// await asyncPrefs.setString('action', 'Start');
+  static Future<void> setLogin(bool isLogin) async {
+    await _asyncPref.setBool(_loginKey, isLogin);
+  }
 
-// final bool? repeat = await asyncPrefs.getBool('repeat');
-// final String? action = await asyncPrefs.getString('action');
+  static Future<bool> get isLogin async {
+    return await _asyncPref.getBool(_loginKey) ?? false;
+  }
 
-// await asyncPrefs.remove('repeat');
-
-// // Any time a filter option is included as a method parameter, strongly consider
-// // using it to avoid potentially unwanted side effects.
-// await asyncPrefs.clear(allowList: <String>{'action', 'repeat'});
-// }
+  static Future<void> logOut() async {
+    await _asyncPref.remove(_loginKey);
+  }
+}

@@ -3,7 +3,6 @@ import 'package:veranza_labs/router/app_router.dart';
 import 'package:material_ui/material_ui.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
