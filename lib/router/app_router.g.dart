@@ -6,16 +6,16 @@ part of 'app_router.dart';
 // GoRouterGenerator
 // **************************************************************************
 
-List<RouteBase> get $appRoutes => [$homeRoute, $loginRoute, $splashRoute];
+List<RouteBase> get $appRoutes => [$splashRoute, $loginRoute, $homeRoute];
 
-RouteBase get $homeRoute => GoRouteData.$route(
+RouteBase get $splashRoute => GoRouteData.$route(
   path: '/',
   hasOverriddenOnExit: false,
-  factory: $HomeRoute._fromState,
+  factory: $SplashRoute._fromState,
 );
 
-mixin $HomeRoute on GoRouteData {
-  static HomeRoute _fromState(GoRouterState state) => const HomeRoute();
+mixin $SplashRoute on GoRouteData {
+  static SplashRoute _fromState(GoRouterState state) => const SplashRoute();
 
   @override
   String get location => GoRouteData.$location('/');
@@ -60,17 +60,17 @@ mixin $LoginRoute on GoRouteData {
   void replace(BuildContext context) => context.replace(location);
 }
 
-RouteBase get $splashRoute => GoRouteData.$route(
-  path: '/splash-screen',
+RouteBase get $homeRoute => GoRouteData.$route(
+  path: '/home',
   hasOverriddenOnExit: false,
-  factory: $SplashRoute._fromState,
+  factory: $HomeRoute._fromState,
 );
 
-mixin $SplashRoute on GoRouteData {
-  static SplashRoute _fromState(GoRouterState state) => const SplashRoute();
+mixin $HomeRoute on GoRouteData {
+  static HomeRoute _fromState(GoRouterState state) => const HomeRoute();
 
   @override
-  String get location => GoRouteData.$location('/splash-screen');
+  String get location => GoRouteData.$location('/home');
 
   @override
   void go(BuildContext context) => context.go(location);
