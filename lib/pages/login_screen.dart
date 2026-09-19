@@ -115,8 +115,6 @@ class _LoginScreenState extends State<LoginScreen> {
                                       name: 'email',
                                       builder: (FormFieldState<dynamic> field) {
                                         return TextFormField(
-                                          onChanged: (value) =>
-                                              field.didChange(value),
                                           style: GoogleFonts.inter(
                                             color: Color(0xFF1A1C1E),
                                             fontSize: 14,
