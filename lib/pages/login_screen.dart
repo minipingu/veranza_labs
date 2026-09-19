@@ -107,49 +107,47 @@ class _LoginScreenState extends State<LoginScreen> {
                                         ),
                                       ],
                                     ),
-                                    child: FormBuilderField(
+                                    child: FormBuilderTextField(
+                                      name: 'email',
                                       validator: FormBuilderValidators.compose([
                                         FormBuilderValidators.required(),
                                         FormBuilderValidators.email(),
                                       ]),
-                                      name: 'email',
-                                      builder: (FormFieldState<dynamic> field) {
-                                        return TextFormField(
-                                          style: GoogleFonts.inter(
-                                            color: Color(0xFF1A1C1E),
-                                            fontSize: 14,
-                                            fontWeight: medium,
+                                      style: GoogleFonts.inter(
+                                        color: Color(0xFF1A1C1E),
+                                        fontSize: 14,
+                                        fontWeight: medium,
+                                      ),
+                                      decoration: InputDecoration(
+                                        hintText: 'Input your email',
+                                        hintStyle: GoogleFonts.inter(
+                                          color: Color(0xFF000000)
+                                              .withValues(alpha: 0.4),
+                                        ),
+                                        filled: true,
+                                        fillColor: Color(0xFFFFFFFF),
+                                        enabledBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            10,
                                           ),
-                                          decoration: InputDecoration(
-                                            hintText: 'Input your email',
-                                            hintStyle: GoogleFonts.inter(
-                                              color: Color(0xFF000000)
-                                                  .withValues(alpha: 0.4),
-                                            ),
-                                            filled: true,
-                                            fillColor: Color(0xFFFFFFFF),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              borderSide: BorderSide(
-                                                color: Color(0xFFEDF1F3),
-                                              ),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              borderSide: BorderSide(
-                                                color: Color.fromARGB(
-                                                  255,
-                                                  205,
-                                                  238,
-                                                  255,
-                                                ),
-                                              ),
+                                          borderSide: BorderSide(
+                                            color: Color(0xFFEDF1F3),
+                                          ),
+                                        ),
+                                        focusedBorder: OutlineInputBorder(
+                                          borderRadius: BorderRadius.circular(
+                                            10,
+                                          ),
+                                          borderSide: BorderSide(
+                                            color: Color.fromARGB(
+                                              255,
+                                              205,
+                                              238,
+                                              255,
                                             ),
                                           ),
-                                        );
-                                      },
+                                        ),
+                                      ),
                                     ),
                                   ),
                                   Container(
